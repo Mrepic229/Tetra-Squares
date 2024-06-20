@@ -71,7 +71,7 @@ impl Grid {
 
     pub fn add_piece(&mut self) {
         match self.piece {
-            Some(_) => println!("AAAAA"),
+            Some(_) => panic!("AAAAA"),
             None => {
                 self.piece = Some(Piece::new())
             },
@@ -160,7 +160,6 @@ impl Grid {
             None => {println!("invalid hard-drop")},
             Some(ref mut some_piece) => {
                 self.repeat_move_down();
-                self.depieceify();
             },
         }  
     }

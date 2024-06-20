@@ -25,12 +25,12 @@ async fn main() {
         if get_time() as f32 - time_of_last_update > TIME_PER_TICK {
             time_of_last_update = get_time() as f32;
 
-            the_grid.move_piece_down();
-
-
-
             if the_grid.piece == Option::None {
                 the_grid.add_piece();
+            } else if the_grid.is_under_piece_valid() {         
+                the_grid.move_piece_down();
+            } else {
+                the_grid.depieceify();
             }
         }
 
